@@ -4,7 +4,7 @@ require_once '../src/init.php';
 $request = str_replace($config['urls']['baseUrl'],'',$_SERVER['REQUEST_URI']);
 $request = strtok($request, '?');
 
-$templates = new League\Plates\Engine('../src/view');
+$templates = new League\Plates\Engine(TEMPLATE_DIR);
 
 if ($request === '/' || $request === '/tapahtumat') {
     echo $templates->render('tapahtumat');
