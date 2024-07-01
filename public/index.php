@@ -1,6 +1,7 @@
 <?php
+require_once '../src/init.php';
 
-$request = str_replace('/~lkevatky/lukupiiri','',$_SERVER['REQUEST_URI']);
+$request = str_replace($config['urls']['baseUrl'],'',$_SERVER['REQUEST_URI']);
 $request = strtok($request, '?');
 
 if ($request === '/' || $request === '/tapahtumat') {
