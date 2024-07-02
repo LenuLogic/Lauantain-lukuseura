@@ -7,7 +7,9 @@ $request = strtok($request, '?');
 $templates = new League\Plates\Engine(TEMPLATE_DIR);
 
 if ($request === '/' || $request === '/tapahtumat') {
-    echo $templates->render('tapahtumat');
+    require_once MODEL_DIR . 'tapahtuma.php';
+    $tapahtumat = haeTapahtumat();
+    echo $templates->render('tapahtumat',['tapahtumat' => $tapahtumat]);
 } else if ($request === '/tapahtuma') {
     echo $templates->render('tapahtuma');
 } else {
