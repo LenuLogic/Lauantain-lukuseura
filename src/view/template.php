@@ -6,7 +6,7 @@
     </head>
     <body>
         <header>
-            <h1>Lauantain lukuseura</h1>
+            <h1><a href="<?=BASEURL?>">Lauantain lukuseura</a></h1>
         </header>
         <section>
             <?=$this->section('content')?>
