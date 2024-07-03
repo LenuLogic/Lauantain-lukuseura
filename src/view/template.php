@@ -3,6 +3,7 @@
     <head>
         <title>Lauantain lukuseura - <?=$this->e($title)?></title>
         <meta charset="UTF-8">
+        <link href="styles/styles.css" rel="stylesheet">
     </head>
     <body>
         <header>
