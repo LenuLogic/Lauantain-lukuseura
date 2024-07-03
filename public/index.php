@@ -6,22 +6,27 @@ $request = strtok($request, '?');
 
 $templates = new League\Plates\Engine(TEMPLATE_DIR);
 
-if ($request === '/' || $request === '/tapahtumat') {
-    require_once MODEL_DIR . 'tapahtuma.php';
-    $tapahtumat = haeTapahtumat();
-    echo $templates->render('tapahtumat',['tapahtumat' => $tapahtumat]);
-} else if ($request === '/tapahtuma') {
-    require_once MODEL_DIR . 'tapahtuma.php';
-    $tapahtuma = haeTapahtuma($_GET['id']);
-    if ($tapahtuma) {
-        echo $templates->render('tapahtuma',['tapahtuma' => $tapahtuma]);
-    } else {
-        echo $templates->render('tapahtumanotfound');
-    }
-} else if ($request === '/lisaa_tili') {
-    echo $templates->render('lisaa_tili');
-} else {
-    echo $templates->render('notfound');
+switch ($request) {
+    case '/':
+    case '/tapahtumat':
+        require_once MODEL_DIR . 'tap_funktiot.php';
+        $tapahtumat = haeTapahtumat();
+        echo $templates->render('tapahtumat',['tapahtumat' => $tapahtumat]);
+        break;
+    case '/tapahtuma':
+        require_once MODEL_DIR . 'tap_funktiot.php';
+        $tapahtuma = haeTapahtuma($_GET['id']);
+        if ($tapahtuma) {
+            echo $templates->render('tapahtuma',['tapahtuma' => $tapahtuma]);
+        } else {
+            echo $templates->render('tapahtumanotfound');
+        }
+        break;
+    case '/lisaa_tili':
+        echo $templates->render('lisaa_tili');
+        break;
+    default:
+        echo $templates->render('notfound');
 }
 
 ?>
