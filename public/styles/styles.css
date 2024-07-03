@@ -2,3 +2,8 @@
 "12. Viimeisenä korjaamme vielä tapahtumat-sivulla tulostuvat yksittäiset tapahtumat asemoitumaan yhdelle riville."
 lomakemuotoilut: https://koodaaja.hayo.fi/tapahtumapalvelu/lomake/lomaketyylit.html
 */
+
+.error {
+color: red;
+font-size: 0.8rem;
+}
