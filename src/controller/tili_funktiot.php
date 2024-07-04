@@ -25,7 +25,7 @@ function lisaaTili($formdata) {
     }
     
     if (isset($formdata['salasana1']) && $formdata['salasana1'] &&
-        isset($formdata['salasana2']) && $formdata['salsana2']) {
+        isset($formdata['salasana2']) && $formdata['salasana2']) {
             if ($formdata['salasana1'] != $formdata['salasana2']) {
                 $error['salasana'] = "Salasanat eivät täsmää.";
             }

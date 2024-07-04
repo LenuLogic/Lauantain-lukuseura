@@ -28,8 +28,8 @@ switch ($request) {
             require_once CONTROLLER_DIR . 'tili_funktiot.php';
             $tulos = lisaaTili($formdata);
             if ($tulos['status'] == "200") {
-                echo "Tili on luotu tunnisteella $tulos[id]";
-            break;
+                echo $templates->render('tili_luotu', ['formdata' => $formdata]);
+                break;
             }
             echo $templates->render('lisaa_tili', ['formdata' => $formdata, 'error' => $tulos['error']]);
             break;
