@@ -13,7 +13,8 @@ switch ($request) {
         $tapahtumat = haeTapahtumat();
         echo $templates->render('tapahtumat',['tapahtumat' => $tapahtumat]);
         break;
-    case '/tapahtuma':
+   
+        case '/tapahtuma':
         require_once MODEL_DIR . 'tap_funktiot.php';
         $tapahtuma = haeTapahtuma($_GET['id']);
         if ($tapahtuma) {
@@ -22,6 +23,7 @@ switch ($request) {
             echo $templates->render('tapahtumanotfound');
         }
         break;
+    
     case '/lisaa_tili':
         if (isset($_POST['laheta'])) {
             $formdata = cleanArrayData($_POST);
@@ -38,6 +40,9 @@ switch ($request) {
         break;
         }
 
+    case '/kirjaudu':
+        echo $templates->render('kirjaudu', ['error' => []]);
+        break;
 
     default:
         echo $templates->render('notfound');
