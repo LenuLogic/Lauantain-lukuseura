@@ -11,7 +11,7 @@ function cleanArrayData($array=[]) {
 }
 
 function getValue($values, $key) {
-    if (array_key_exists($key, $values)) {
+    if (array_key_exists($key, $values)) { // array_key_exists() expects parameter 2 to be array, string given
         return htmlspecialchars($values[$key]);
     } else {
         return null;

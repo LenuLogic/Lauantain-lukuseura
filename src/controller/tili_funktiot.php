@@ -7,7 +7,7 @@ function lisaaTili($formdata) {
     if (!isset($formdata['nimi']) || !$formdata['nimi']) {
         $error['nimi'] = "Syötä nimi.";
     } else {
-        if (!preg_match("/^[- '\p{L}]+$/u", $formdata["nimi"])) {
+        if (!preg_match("/^[- '\p{L}]+$/u", $formdata['nimi'])) {
             $error['nimi'] = "Syötä nimi ilman erikoismerkkejä.";
         }
     }
@@ -16,7 +16,7 @@ function lisaaTili($formdata) {
         $error['email'] = "Syötä sähköpostiosoite.";
     } else {
         if (!filter_var($formdata['email'], FILTER_VALIDATE_EMAIL)) {
-            $error = "Sähköpostiosoite on virheellisessä muodossa.";
+            $error['email'] = "Sähköpostiosoite on virheellisessä muodossa.";
         }
     }
 
@@ -25,8 +25,8 @@ function lisaaTili($formdata) {
             if ($formdata['salasana1'] != $formdata['salasana2']) {
                 $error['salasana'] = "Salasanat eivät täsmää.";
             }
-        } else {
-            $error['salasana'] = "Syötä salasana kahteen kertaan.";
+        } else { // rivi 29: illegal string offset 'salasana.
+            $error['salasana'] = "Syötä salasana kahteen kertaan."; 
         }
     
     if (!$error) {
