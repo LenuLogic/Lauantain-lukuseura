@@ -24,4 +24,16 @@ function vahvistaTili($avain) {
     return DB::run('UPDATE lp_henkilo SET vahvistettu = TRUE WHERE vahv_avain = ?', [$avain])->rowCount();
 }
 
+function asetaVaihtoavain($email, $avain) {
+    return DB::run('UPDATE lp_henkilo SET nollausavain = ?, nollausaika = NOW() + INTERVAL 30 MINUTE WHERE email = ?', [$avain, $email])->rowCount();
+}
+
+function tarkistaVaihtoavain($avain) {
+    return DB::run('SELECT nollausavain, nollausaika-NOW() AS aikaikkuna FROM lp_henkilo WHERE nollausavain = ?', [$avain])->fetch();
+}
+
+function vaihdaSalasanaAvaimella($salasana, $avain) {
+    return DB::run('UPDATE lp_henkilo SET salasana = ?, nollausavain = NULL, nollausaika = NULL WHERE nollausavain = ?', [$salasana, $avain])->rowCount();
+}
+
 ?>
