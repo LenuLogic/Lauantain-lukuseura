@@ -123,6 +123,17 @@ switch ($request) {
         }
         break;
 
+    case '/tilaa_vaihtoavain':
+        $formdata = cleanArrayData($_POST);
+        if (isset($formdata['laheta'])) {
+
+            // TO DO: vaihtoavaimen tilauskäsittely
+
+        } else {
+            echo $templates->render('tilaa_vaihtoavain');
+        }
+        break;
+
     default:
         echo $templates->render('notfound');
 }

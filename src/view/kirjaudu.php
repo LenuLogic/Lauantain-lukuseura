@@ -17,4 +17,6 @@
     </div>
 </form>
 
-<div class="info">Jos sinulla ei ole vielä tunnuksia, voit luoda <a href="lisaa_tili">täällä</a>.</div> 
+<div class="info">Jos sinulla ei ole vielä tunnuksia, voit luoda <a href="lisaa_tili">täällä</a>.<br>
+Jos olet unohtanut salasanasi, voit vaihtaa sen <a href="tilaa_vaihtoavain">täällä</a>.
+</div> 
