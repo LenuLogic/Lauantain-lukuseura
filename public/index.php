@@ -126,9 +126,24 @@ switch ($request) {
     case '/tilaa_vaihtoavain':
         $formdata = cleanArrayData($_POST);
         if (isset($formdata['laheta'])) {
-
-            // TO DO: vaihtoavaimen tilauskäsittely
-
+            // tästä alkaa
+            require_once MODEL_DIR . 'henk_funktiot.php';
+            $user = haeHenkilo($formdata['email']);
+            if ($user) {
+                require_once CONTROLLER_DIR . 'tili_funktiot.php';
+                $tulos = luoVaihtoavain($formdata['email'], $config['urls']['baseUrl']);
+                echo $tulos;
+                if ($tulos['status'] == "200") { // Mikä tässä mättää? Tulostaa taulukon
+                    echo $templates->render('tilaa_vaihtoavain_lahetetty');
+                    break;
+                }
+                echo $templates->render('virhe');
+                break;
+            } else {
+                echo $templates->render('tilaa_vaihtoavain_lahetetty');
+                break;
+            }
+            // tähän päättyy
         } else {
             echo $templates->render('tilaa_vaihtoavain');
         }

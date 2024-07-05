@@ -40,7 +40,6 @@ function lisaaTili($formdata, $baseurl='') {
 
         $idhenkilo = lisaaHenkilo($nimi, $email, $salasana);
 
-// Tämä muutettu viimeksi
         if ($idhenkilo) {
             require_once(HELPERS_DIR . "secret.php");
             $avain = generateActivationCode($email);
@@ -59,7 +58,6 @@ function lisaaTili($formdata, $baseurl='') {
                 ];
             }           
         } else {
-// Tähän loppuu
             return [
                 "status" => 500,
                 "data" => $formdata,
@@ -85,6 +83,38 @@ function lahetaVahv_avain($email, $url) {
     "Terveisin \n" . 
     "Lauantain lukuseura";
     return mail($email, 'Lauantain lukuseura -tilin aktivointilinkki', $message);
+}
+
+function lahetaVaihtoavain($email, $url) {
+    $message = "Hei!\n\n" .
+    "Olet pyytänyt tilisi salasanan vaihtoa. Klikkaamalla\n" .
+    "alla olevaa linkkiä pääset vaihtamaan salasanasi.\n" .
+    "Linkki on voimassa 30 minuuttia.\n\n" .
+    "$url\n\n" .
+    "Jos et ole pyytänyt tilisi salasanan vaihtoa, \n" .
+    "voit poistaa tämän viestin turvallisesti.\n\n" .
+    "Terveisin\n" . 
+    "Lauantain lukuseura";
+}
+
+function luoVaihtoavain($email, $baseurl='') {
+    require_once(HELPERS_DIR . "secret.php");
+    $avain = generateResetCode($email);
+    $url = 'https://' . $_SERVER['HTTP_HOST'] . $baseurl . "/reset?key=$avain";
+    require_once(MODEL_DIR . 'henk_funktiot.php');
+
+    if (asetaVaihtoavain($email, $avain) && lahetaVaihtoavain($email, $url)) {
+        return [
+            "status" => 200,
+            "email" => $email,
+            "resetkey" => $avain
+        ];
+    } else {
+        return [
+            "status" => 500,
+            "email" => $email
+        ];
+    }
 }
 
 ?>
