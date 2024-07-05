@@ -1,5 +1,5 @@
 <?php
-require_once HELPERS.DIR . 'DB.php';
+require_once HELPERS_DIR . 'DB.php';
 
 function haeIlmoittautuminen($idhenkilo, $idtapahtuma) {
     return DB::run('SELECT * FROM lp_ilmo WHERE idhenkilo = ? AND idtapahtuma =?',
