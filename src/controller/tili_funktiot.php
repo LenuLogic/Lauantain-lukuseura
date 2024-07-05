@@ -1,6 +1,6 @@
 <?php
 
-function lisaaTili($formdata) {
+function lisaaTili($formdata, $baseurl='') {
     require_once(MODEL_DIR . 'henk_funktiot.php');
     $error =[];
 
@@ -40,13 +40,26 @@ function lisaaTili($formdata) {
 
         $idhenkilo = lisaaHenkilo($nimi, $email, $salasana);
 
+// Tämä muutettu viimeksi
         if ($idhenkilo) {
-            return [
-                "status" => 200,
-                "id" => $idhenkilo,
-                "data" => $formdata
-            ];
+            require_once(HELPERS_DIR . "secret.php");
+            $avain = generateActivationCode($email);
+            $url = 'https://' . $_SERVER['HTTP_HOST'] . $baseurl . "/vahvista?key=$avain";
+            
+            if (paivitaVahv_avain($email, $avain) && lahetaVahv_avain($email, $url)) {
+                return [
+                    "status" => 200,
+                    "id" => $idhenkilo,
+                    "data" => $formdata
+                ];
+            } else {
+                return [
+                    "status" => 500,
+                    "data" => $formdata
+                ];
+            }           
         } else {
+// Tähän loppuu
             return [
                 "status" => 500,
                 "data" => $formdata,
@@ -59,6 +72,19 @@ function lisaaTili($formdata) {
             "error" => $error
         ];
     }
+}
+
+function lahetaVahv_avain($email, $url) {
+    $message = "Hei!\n\n" .
+    "Olet rekisteröitynyt Lauantain lukuseura -palveluun tällä sähköpostiosoitteella.\n" . 
+    "Klikkaamalla alla olevaa linkkiä vahvistat käyttämäsi sähköpostiosoitteen\n" .
+    "ja pääset käyttämään palvelua.\n\n" . 
+    "$url\n\n" .
+    "Jos et ole rekisteröitynyt Lauantain lukuseura -palveluun, tämä sähköposti on tullut sinulle vahingossa.\n" .
+    "Siinä tapauksessa ole hyvä ja poista tämä viesti.\n\n" .
+    "Terveisin \n" . 
+    "Lauantain lukuseura";
+    return mail($email, 'Lauantain lukuseura -tilin aktivointilinkki', $message);
 }
 
 ?>
