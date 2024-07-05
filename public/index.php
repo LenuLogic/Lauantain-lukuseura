@@ -2,6 +2,13 @@
 session_start();
 require_once '../src/init.php';
 
+if (isset($_SESSION['user'])) {
+    require_once MODEL_DIR . 'henk_funktiot.php';
+    $loggeduser = haeHenkilo($_SESSION['user']);
+} else {
+    $loggeduser = NULL;
+}
+
 $request = str_replace($config['urls']['baseUrl'],'',$_SERVER['REQUEST_URI']);
 $request = strtok($request, '?');
 
