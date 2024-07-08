@@ -148,6 +148,32 @@ switch ($request) {
         }
         break;
 
+    case '/reset':
+        $resetkey = $_GET['key'];
+        require_once MODEL_DIR . 'henk_funktiot.php';
+        $rivi = tarkistaVaihtoavain($resetkey);
+
+        if ($rivi) {
+            if ($rivi['aikaikkuna'] < 0) {
+                echo $templates->render('reset_virhe');
+                break;
+            }
+        } else {
+            echo $templates->render('reset_virhe');
+            break;
+        }
+
+        $formdata = cleanArrayData($_POST);
+        if (isset($formdata['laheta'])) {
+
+            // TODO Salasanalomakkeen käsittelijä
+
+        } else {
+            echo $templates->render('reset_lomake', ['error' => '']);
+            break;
+        }
+        break;
+
     default:
         echo $templates->render('notfound');
 }
