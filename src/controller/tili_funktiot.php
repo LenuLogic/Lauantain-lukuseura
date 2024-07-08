@@ -87,8 +87,7 @@ function lahetaVahv_avain($email, $url) {
 
 function lahetaVaihtoavain($email, $url) {
     $message = "Hei!\n\n" .
-    "Olet pyytänyt tilisi salasanan vaihtoa. Pääset vaihtamaan salasanasi klikkaamalla
-    alla olevaa linkkiä.\n" .
+    "Olet pyytänyt tilisi salasanan vaihtoa. Pääset vaihtamaan salasanasi klikkaamalla alla olevaa linkkiä.\n" .
     "Linkki on voimassa 30 minuuttia.\n\n" .
     "$url\n\n" .
     "Jos et ole pyytänyt tilisi salasanan vaihtoa, voit poistaa tämän viestin turvallisesti.\n\n" .
@@ -115,6 +114,44 @@ function luoVaihtoavain($email, $baseurl='') {
             "email" => $email
         ];
     }
+}
+
+function resetoiSalasana($formdata, $resetkey='') {
+    require_once(MODEL_DIR . 'henk_funktiot.php');
+    $error="";
+
+    if (isset($formdata['salasana1']) && $formdata['salasana1'] &&
+        isset($formdata['salasana2']) && $formdata['salasana2']) {
+            if ($formdata['salasana1'] != $formdata['salasana2']) {
+                $error = "Salasanat eivät täsmää. ";
+            }
+        } else {
+            $error = "Syötä salasana kahteen kertaan.";
+        }
+    
+    if (!$error) {
+        $salasana = password_hash($formdata['salasana1'], PASSWORD_DEFAULT);
+        $rowcount = vaihdaSalasanaAvaimella($salasana, $resetkey);
+
+        if ($rowcount) {
+            return [
+                "status" => 200,
+                "resetkey" => $resetkey
+            ];
+        } else {
+            return [
+                "status" => 500,
+                "resetkey" => $resetkey
+            ];
+        }
+    } else {
+        return [
+            "status" => 400,
+            "resetkey" => $resetkey,
+            "error" => $error
+        ];
+    }
+
 }
 
 ?>

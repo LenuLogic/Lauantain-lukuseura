@@ -165,9 +165,15 @@ switch ($request) {
 
         $formdata = cleanArrayData($_POST);
         if (isset($formdata['laheta'])) {
+            require_once CONTROLLER_DIR . 'tili_funktiot.php';
+            $tulos = resetoiSalasana($formdata, $resetkey);
 
-            // TODO Salasanalomakkeen käsittelijä
-
+            if ($tulos['status'] == "200") {
+                echo $templates->render('reset_valmis');
+                break;
+            }
+            echo $templates->render('reset_lomake', ['error' => $tulos['error']]);
+            break;
         } else {
             echo $templates->render('reset_lomake', ['error' => '']);
             break;
