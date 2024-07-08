@@ -132,12 +132,11 @@ switch ($request) {
             if ($user) {
                 require_once CONTROLLER_DIR . 'tili_funktiot.php';
                 $tulos = luoVaihtoavain($formdata['email'], $config['urls']['baseUrl']);
-                echo $tulos;
                 if ($tulos['status'] == "200") { // Mikä tässä mättää? Tulostaa taulukon
                     echo $templates->render('tilaa_vaihtoavain_lahetetty');
                     break;
                 }
-                echo $templates->render('virhe');
+                echo $templates->render('virhe'); // päätyy tähän
                 break;
             } else {
                 echo $templates->render('tilaa_vaihtoavain_lahetetty');

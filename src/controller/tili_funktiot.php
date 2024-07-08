@@ -87,14 +87,14 @@ function lahetaVahv_avain($email, $url) {
 
 function lahetaVaihtoavain($email, $url) {
     $message = "Hei!\n\n" .
-    "Olet pyytänyt tilisi salasanan vaihtoa. Klikkaamalla\n" .
-    "alla olevaa linkkiä pääset vaihtamaan salasanasi.\n" .
+    "Olet pyytänyt tilisi salasanan vaihtoa. Pääset vaihtamaan salasanasi klikkaamalla
+    alla olevaa linkkiä.\n" .
     "Linkki on voimassa 30 minuuttia.\n\n" .
     "$url\n\n" .
-    "Jos et ole pyytänyt tilisi salasanan vaihtoa, \n" .
-    "voit poistaa tämän viestin turvallisesti.\n\n" .
+    "Jos et ole pyytänyt tilisi salasanan vaihtoa, voit poistaa tämän viestin turvallisesti.\n\n" .
     "Terveisin\n" . 
     "Lauantain lukuseura";
+    return mail($email, 'Tilin salasanan vaihtaminen', $message);
 }
 
 function luoVaihtoavain($email, $baseurl='') {
