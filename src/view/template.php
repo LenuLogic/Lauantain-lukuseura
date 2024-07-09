@@ -7,6 +7,7 @@
     </head>
     <body>
         <header>
+            <!-- Tämä baseurl-juttu vähän kökkö - oma etusivu olis kiva mut sit toi pitäis korjata -->
             <h1><a href="<?=BASEURL?>">Lauantain lukuseura</a></h1>
             
             <!-- Tapahtumat -->
@@ -22,9 +23,6 @@
                     if (isset($_SESSION['user'])) {
                         echo "<div>$_SESSION[user]</div>";
                         echo "<div><a href='logout'>Kirjaudu ulos</a></div>";
-                        if (isset($_SESSION['admin']) && $_SESSION['admin']) {
-                            echo "<div><a href='admin'>Ylläpitosivut</a></div>";
-                        }
                     } else {
                         echo "<div><a href='kirjaudu'>Kirjaudu</a></div>";
                     }
