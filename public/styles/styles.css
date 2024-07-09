@@ -6,7 +6,25 @@ Headerin uudet muotoilut: https://koodaaja.hayo.fi/tapahtumapalvelu/istunto/tied
 Ilmo-nappien muotoilut: https://koodaaja.hayo.fi/tapahtumapalvelu/istunto/ilmoittaudunappi.html
 */
 
+/* Tekstimuotoilut */
+
+/* Main ja body */
+
+/* Header ja navigointi */
+header {
+    background-color: #B8BAC8;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+
+/* Lomakkeet */
 .error {
 color: red;
 font-size: 0.8rem;
 }
+

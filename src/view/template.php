@@ -8,6 +8,15 @@
     <body>
         <header>
             <h1><a href="<?=BASEURL?>">Lauantain lukuseura</a></h1>
+            
+            <!-- Tapahtumat -->
+            <div class="tapahtumat">
+            <a href="<?=BASEURL?>">Tapahtumat</a>
+            </div>
+
+            <!-- Lisää tapahtuma -->    
+            <div class="lisays">
+
             <div class="profile">
                 <?php 
                     if (isset($_SESSION['user'])) {
