@@ -16,6 +16,9 @@ $templates = new League\Plates\Engine(TEMPLATE_DIR);
 
 switch ($request) {
     case '/':
+        echo $templates->render('etusivu');
+        break;
+    // Tähän etusivu erikseen ja linkitys
     case '/tapahtumat':
         require_once MODEL_DIR . 'tap_funktiot.php';
         $tapahtumat = haeTapahtumat();

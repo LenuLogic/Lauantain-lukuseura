@@ -12,7 +12,7 @@ Ilmo-nappien muotoilut: https://koodaaja.hayo.fi/tapahtumapalvelu/istunto/ilmoit
 
 /* Header ja navigointi */
 header {
-    background-color: #B8BAC8;
+    background-color: peachpuff;
     padding: 1rem 1.5rem;
     display: flex;
     flex-direction: row;

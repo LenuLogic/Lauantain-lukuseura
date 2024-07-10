@@ -7,12 +7,11 @@
     </head>
     <body>
         <header>
-            <!-- Tämä baseurl-juttu vähän kökkö - oma etusivu olis kiva mut sit toi pitäis korjata -->
             <h1><a href="<?=BASEURL?>">Lauantain lukuseura</a></h1>
             
             <!-- Tapahtumat -->
             <div class="tapahtumat">
-            <a href="<?=BASEURL?>">Tapahtumat</a>
+            <a href='tapahtumat'>Tapahtumat</a> 
             </div>
 
             <!-- Lisää tapahtuma -->    
