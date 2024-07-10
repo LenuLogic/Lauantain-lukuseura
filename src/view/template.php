@@ -9,12 +9,10 @@
         <header>
             <h1><a href="<?=BASEURL?>">Lauantain lukuseura</a></h1>
             
-            <!-- Tapahtumat -->
             <div class="tapahtumat">
             <a href='tapahtumat'>Tapahtumat</a> 
             </div>
-
-            <!-- Lisää tapahtuma -->    
+  
             <div class="lisays">
                 <a href="lisaa_tapahtuma">Lisää tapahtuma</a>
             </div>
