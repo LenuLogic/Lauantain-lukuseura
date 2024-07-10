@@ -1,13 +1,15 @@
 <?php $this->layout('template', ['title' => $tapahtuma['nimi']]);
 
-$start = new DateTime($tapahtuma['tap_alkaa']); // Muuta tämä
-$end = new DateTime($tapahtuma['tap_loppuu']); // Muuta tämä
+$alkupvm = new DateTime($tapahtuma['alkaa_pvm']); 
+$alkuklo = new DateTime($tapahtuma['alkaa_klo']);
+$loppupvm = new DateTime($tapahtuma['loppuu_pvm']);
+$loppuklo = new DateTime($tapahtuma['loppuu_klo']);
 ?>
 
 <h1><?=$tapahtuma['nimi']?></h1>
-<div><?=$tapahtuma['kuvaus']?></div>
-<div>Alkaa: <?=$start->format('j.n.Y G.i')?></div> <!-- Muuta tämä -->
-<div>Päättyy: <?=$end->format('j.n.Y G.i')?></div> <!-- Muuta tämä -->
+<div><?=$tapahtuma['kuvaus']?></div><br>
+<div>Alkaa: <?=$alkupvm->format('j.n.Y') . " klo " . $alkuklo->format('G.i') ?></div> 
+<div>Päättyy: <?=$loppupvm->format('j.n.Y') . " klo " . $loppuklo->format('G.i') ?></div> <!-- Muuta tämä -->
 
 <?php
     if ($loggeduser) {

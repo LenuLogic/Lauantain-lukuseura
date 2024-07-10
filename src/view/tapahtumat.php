@@ -12,7 +12,6 @@ foreach ($tapahtumat as $tapahtuma) {
 
     echo "<div>";
         echo "<div>$tapahtuma[nimi]</div>";
-        //echo "<div>" . $start->format('j.n.Y') . "-" . $end->format('j.n.Y') . "</div>"; // Muuta tämä
         echo "<div>Alkaa " . $alkupvm->format('j.n.Y') . " klo " . $alkuklo->format('G.i') . "</div>";
         echo "<div>Päättyy " . $loppupvm->format('j.n.Y') . " klo " . $loppuklo->format('G.i') . "</div>";
         echo "<div><a href='tapahtuma?id=" . $tapahtuma['idtapahtuma'] . "'>TIEDOT</a></div>";
