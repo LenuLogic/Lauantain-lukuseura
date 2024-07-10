@@ -184,6 +184,11 @@ switch ($request) {
         }
         break;
 
+    // Väliaikainen Lisää tapahtuma
+    case '/lisaa_tapahtuma':
+        echo $templates->render('lisaa_tapahtuma');
+        break;
+
     /*
     case '/lisaa_tapahtuma':
         if (isset($_POST['laheta'])) {          //OK

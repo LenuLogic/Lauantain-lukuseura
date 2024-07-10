@@ -16,6 +16,8 @@
 
             <!-- Lisää tapahtuma -->    
             <div class="lisays">
+                <a href="lisaa_tapahtuma">Lisää tapahtuma</a>
+            </div>
 
             <div class="profile">
                 <?php 
