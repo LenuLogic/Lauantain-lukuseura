@@ -189,6 +189,23 @@ switch ($request) {
         echo $templates->render('lisaa_tapahtuma');
         break;
 
+
+    case '/lisaa_tapahtuma':
+        if (isset($_POST['laheta'])) {          //OK
+            $formdata = cleanArrayData($_POST); //OK
+            require_once MODEL_DIR . 'tap_funktiot.php'; // MODEL_DIR tarvitaan mutta entä tämä 'tili_funktiot.php'?
+            $tulos = lisaaTapahtuma($formdata,$config['urls']['baseUrl']); //mitä tämä palauttaa?
+            if ($tulos['status'] == "200") {
+                echo $templates->render('tapahtuma_lisatty', ['formdata' => $formdata]); // Tarviiko tota hakasulkeissa olevaa?
+                break;
+            }
+            echo $templates->render('lisaa_tapahtuma', ['formdata' => $formdata, 'error' => $tulos['error']]);
+            break;
+        } else {
+        echo $templates->render('lisaa_tapahtuma', ['formdata' => [], 'error' => []]);
+        break;
+        }
+    
     /*
     case '/lisaa_tapahtuma':
         if (isset($_POST['laheta'])) {          //OK
