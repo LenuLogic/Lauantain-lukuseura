@@ -2,14 +2,14 @@
 require_once HELPERS_DIR . 'DB.php';
 
 function haeTapahtumat() {
-    return DB::run('SELECT * FROM lp_tapahtuma ORDER BY tap_alkaa;')->fetchAll();
+    return DB::run('SELECT * FROM lp_tapahtuma ORDER BY alkaa_pvm;')->fetchAll();
 }
 
 function haeTapahtuma($id) {
     return DB::run('SELECT * FROM lp_tapahtuma WHERE idtapahtuma = ?;',[$id])->fetch();
 }
 
-// nimi, kuvaus, tap_alkaa, tap_loppuu
+// nimi, kuvaus, tap_alkaa, tap_loppuu LISÄÄ alkaa_klo ja loppuu_klo
 function lisaaTapahtuma($nimi, $kuvaus, $tap_alkaa, $tap_loppuu) {
     DB::run('INSERT INTO lp_tapahtuma (nimi, kuvaus, tap_alkaa, tap_loppuu) VALUES (?,?,?,?);', [$nimi, $kuvaus, $tap_alkaa, $tap_loppuu]);
     return DB::lastInsertID();
@@ -37,31 +37,50 @@ function tarkistaTapahtuma($formdata) {
             // Saako tämän suodatettua tekstiksi/stringiksi?
             }
         }
-    
-    if (!isset($formdata['tap_alkaa_pvm']) || !$formdata['tap_alkaa_pvm']) {
-        $error['tap_alkaa_pvm'] = "Syötä tapahtuman alkamispäivä.";
+    // Alkamispäivä
+    if (!isset($formdata['alkaa_pvm']) || !$formdata['alkaa_pvm']) {
+        $error['alkaa_pvm'] = "Syötä tapahtuman alkamispäivä.";
         } else {
-            if (!preg_match("/^[- '\p{L}]+$/u", $formdata['tap_alkaa_pvm'])) {
-            $error['tap_alkaa_pvm'] = "Syötä alkamispäivä ilman erikoismerkkejä.";
-            }
-        }
-        // Tuleeko joku, mikä tarkistaa oikean muodon? Entä kalenterinäkymä?
-    
-    if (!isset($formdata['tap_loppuu_pvm']) || !$formdata['tap_loppuu_pvm']) {
-        $error['tap_loppuu_pvm'] = "Syötä tapahtuman päättymispäivä.";
-        } else {
-            if (!preg_match("/^[- '\p{L}]+$/u", $formdata['tap_loppuu_pvm'])) {
-            $error['tap_loppuu_pvm'] = "Syötä päättymispäivä ilman erikoismerkkejä.";
+            if (!preg_match("/^[- '\p{L}]+$/u", $formdata['alkaa_pvm'])) {
+            $error['alkaa_pvm'] = "Syötä alkamispäivä ilman erikoismerkkejä.";
             }
         }
         // Tuleeko joku, mikä tarkistaa oikean muodon? Entä kalenterinäkymä?
 
+    // Alkamisaika
+    if (!isset($formdata['alkaa_klo']) || !$formdata['alkaa_klo']) {
+        $error['alkaa_klo'] = "Syötä tapahtuman alkamisaika.";
+        } else {
+            if (!preg_match("/^[- '\p{L}]+$/u", $formdata['alkaa_klo'])) {
+            $error['alkaa_klo'] = "Syötä alkamisaika ilman erikoismerkkejä.";
+            }
+        }
+
+    //Loppumispäivä
+    if (!isset($formdata['loppuu_pvm']) || !$formdata['loppuu_pvm']) {
+        $error['loppuu_pvm'] = "Syötä tapahtuman päättymispäivä.";
+        } else {
+            if (!preg_match("/^[- '\p{L}]+$/u", $formdata['loppuu_pvm'])) {
+            $error['loppuu_pvm'] = "Syötä päättymispäivä ilman erikoismerkkejä.";
+            }
+        }
+
+    //Loppumisaika
+    if (!isset($formdata['loppuu_klo']) || !$formdata['loppuu_klo']) {
+        $error['loppuu_klo'] = "Syötä tapahtuman päättymisaika.";
+        } else {
+            if (!preg_match("/^[- '\p{L}]+$/u", $formdata['loppuu_klo'])) {
+            $error['loppuu_klo'] = "Syötä päättymispäivä ilman erikoisaika.";
+            }
+        }
     
     if (!$error) {
         $nimi = $formdata['nimi'];
         $kuvaus = $formdata['kuvaus'];
-        $tap_alkaa_pvm = $formdata['tap_alkaa_pvm'];
-        $tap_loppuu_pvm = $formdata['tap_loppuu_pvm'];
+        $alkaa_pvm = $formdata['alkaa_pvm'];
+        $alkaa_klo = $formdata['alkaa_klo'];
+        $loppuu_pvm = $formdata['loppuu_pvm'];
+        $loppuu_klo = $formdata['loppuu_klo'];
 
         /* Tarvitaanko näitä ollenkaan)
         $idhenkilo = lisaaHenkilo($nimi, $email, $salasana);
