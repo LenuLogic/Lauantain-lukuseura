@@ -25,7 +25,7 @@ switch ($request) {
         echo $templates->render('tapahtumat',['tapahtumat' => $tapahtumat]);
         break;
    
-        case '/tapahtuma':
+    case '/tapahtuma':
         require_once MODEL_DIR . 'tap_funktiot.php';
         require_once MODEL_DIR . 'ilmo_funktiot.php';
         $tapahtuma = haeTapahtuma($_GET['id']);
@@ -184,13 +184,23 @@ switch ($request) {
         }
         break;
 
-    case (bool)preg_match('/\/admin.*/', $request):
-    if ($loggeduser['admin']) {
-        echo "Ylläpitosivut";
-    } else {
-        echo $templates->render('admin_ei_oikeuksia');
-    }
-    break;
+    /*
+    case '/lisaa_tapahtuma':
+        if (isset($_POST['laheta'])) {          //OK
+            $formdata = cleanArrayData($_POST); //OK
+            require_once CONTROLLER_DIR . 'tili_funktiot.php'; // MODEL_DIR tarvitaan mutta entä tämä 'tili_funktiot.php'?
+            $tulos = lisaaTili($formdata,$config['urls']['baseUrl']); //mitä tämä palauttaa?
+            if ($tulos['status'] == "200") {
+                echo $templates->render('tapahtuma_lisatty', ['formdata' => $formdata]); // Tarviiko tota hakasulkeissa olevaa?
+                break;
+            }
+            echo $templates->render('lisaa_tili', ['formdata' => $formdata, 'error' => $tulos['error']]);
+            break;
+        } else {
+        echo $templates->render('lisaa_tili', ['formdata' => [], 'error' => []]);
+        break;
+        }
+        */
 
     default:
         echo $templates->render('notfound');

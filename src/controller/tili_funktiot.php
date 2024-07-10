@@ -29,7 +29,7 @@ function lisaaTili($formdata, $baseurl='') {
             if ($formdata['salasana1'] != $formdata['salasana2']) {
                 $error['salasana'] = "Salasanat eivät täsmää.";
             }
-        } else { // rivi 29: illegal string offset 'salasana.
+        } else { 
             $error['salasana'] = "Syötä salasana kahteen kertaan."; 
         }
     
