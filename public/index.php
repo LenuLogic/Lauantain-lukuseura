@@ -184,14 +184,15 @@ switch ($request) {
         }
         break;
 
-    // Riisuttu versio
     case '/lisaa_tapahtuma':
+        // Tähän kirjautumisen tarkistus
+		if ($loggeduser) {
         if (isset($_POST['laheta'])) {  
             $formdata = cleanArrayData($_POST);
             require_once MODEL_DIR . 'tap_funktiot.php'; 
             $tulos = tarkistaTapahtuma($formdata);
             if ($tulos['status'] == "200") {
-                echo "Tapahtuma on luotu tunnisteella $tulos.";
+                echo $templates->render('tapahtuma_lisatty');
                 break;
             }
             echo $templates->render('lisaa_tapahtuma', ['formdata' => $formdata, 'error' =>$tulos['error']]);
@@ -200,7 +201,29 @@ switch ($request) {
             echo $templates->render('lisaa_tapahtuma', ['formdata' => [], 'error' => []]);
             break;
         }
-    
+        } else {
+			echo $templates->render('kirjaudu_ensin');
+		}
+			break;
+
+    /*
+    case '/lisaa_tapahtuma':
+        if (isset($_POST['laheta'])) {  
+            $formdata = cleanArrayData($_POST);
+            require_once MODEL_DIR . 'tap_funktiot.php'; 
+            $tulos = tarkistaTapahtuma($formdata);
+            if ($tulos['status'] == "200") {
+                echo $templates->render('tapahtuma_lisatty');
+                break;
+            }
+            echo $templates->render('lisaa_tapahtuma', ['formdata' => $formdata, 'error' =>$tulos['error']]);
+            break;
+        } else {
+            echo $templates->render('lisaa_tapahtuma', ['formdata' => [], 'error' => []]);
+            break;
+        }
+    */
+
     default:
         echo $templates->render('notfound');
 }
