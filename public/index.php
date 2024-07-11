@@ -184,27 +184,18 @@ switch ($request) {
         }
         break;
 
-    // Väliaikainen Lisää tapahtuma
+    // Riisuttu versio
     case '/lisaa_tapahtuma':
-        echo $templates->render('lisaa_tapahtuma');
-        break;
-
-
-    case '/lisaa_tapahtuma':
-        if (isset($_POST['laheta'])) {          //OK
-            $formdata = cleanArrayData($_POST); //OK
-            require_once MODEL_DIR . 'tap_funktiot.php'; // MODEL_DIR tarvitaan mutta entä tämä 'tili_funktiot.php'?
-            $tulos = lisaaTapahtuma($formdata,$config['urls']['baseUrl']); //mitä tämä palauttaa?
-            if ($tulos['status'] == "200") {
-                echo $templates->render('tapahtuma_lisatty', ['formdata' => $formdata]); // Tarviiko tota hakasulkeissa olevaa?
-                break;
-            }
-            echo $templates->render('lisaa_tapahtuma', ['formdata' => $formdata, 'error' => $tulos['error']]);
+        if (isset($_POST['laheta'])) {  
+            require_once MODEL_DIR . 'tap_funktiot.php'; 
+            $tulos = lisaaTapahtuma($_POST['nimi'], $_POST['kuvaus'], $_POST['alkaa_pvm'], $_POST['alkaa_klo'], $_POST['loppuu_pvm'], $_POST['loppuu_klo']);
+            echo "Tapahtuma on luotu seuraavilla tiedoilla: <br> $tulos";
             break;
-        } else {
-        echo $templates->render('lisaa_tapahtuma', ['formdata' => [], 'error' => []]);
-        break;
-        }
+            } else {
+                echo $templates->render('lisaa_tapahtuma');
+            }
+            break;
+            
     
     /*
     case '/lisaa_tapahtuma':

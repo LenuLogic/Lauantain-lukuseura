@@ -9,9 +9,8 @@ function haeTapahtuma($id) {
     return DB::run('SELECT * FROM lp_tapahtuma WHERE idtapahtuma = ?;',[$id])->fetch();
 }
 
-// nimi, kuvaus, tap_alkaa, tap_loppuu LISÄÄ alkaa_klo ja loppuu_klo
-function lisaaTapahtuma($nimi, $kuvaus, $tap_alkaa, $tap_loppuu) {
-    DB::run('INSERT INTO lp_tapahtuma (nimi, kuvaus, tap_alkaa, tap_loppuu) VALUES (?,?,?,?);', [$nimi, $kuvaus, $tap_alkaa, $tap_loppuu]);
+function lisaaTapahtuma($nimi, $kuvaus, $alkaa_pvm, $alkaa_klo, $loppuu_pvm, $loppuu_klo) {
+    DB::run('INSERT INTO lp_tapahtuma (nimi, kuvaus, alkaa_pvm, alkaa_klo, loppuu_pvm, loppuu_klo) VALUES (?,?,?,?,?,?);', [$nimi, $kuvaus, $alkaa_pvm, $alkaa_klo, $loppuu_pvm, $loppuu_klo]);
     return DB::lastInsertID();
 }
 
