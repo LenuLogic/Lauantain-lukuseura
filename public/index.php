@@ -187,9 +187,10 @@ switch ($request) {
     // Riisuttu versio
     case '/lisaa_tapahtuma':
         if (isset($_POST['laheta'])) {  
+            $formdata = cleanArrayData($_POST);
             require_once MODEL_DIR . 'tap_funktiot.php'; 
-            $tulos = lisaaTapahtuma($_POST['nimi'], $_POST['kuvaus'], $_POST['alkaa_pvm'], $_POST['alkaa_klo'], $_POST['loppuu_pvm'], $_POST['loppuu_klo']);
-            echo "Tapahtuma on luotu seuraavilla tiedoilla: <br> $tulos";
+            $tulos = lisaaTapahtuma($formdata['nimi'], $formdata['kuvaus'], $formdata['alkaa_pvm'], $formdata['alkaa_klo'], $formdata['loppuu_pvm'], $formdata['loppuu_klo']);
+            echo "Tapahtuma on luotu tunnisteella $tulos.";
             break;
             } else {
                 echo $templates->render('lisaa_tapahtuma');

@@ -16,6 +16,7 @@ function lisaaTapahtuma($nimi, $kuvaus, $alkaa_pvm, $alkaa_klo, $loppuu_pvm, $lo
 
 
 function tarkistaTapahtuma($formdata) {
+    // require_once(MODEL_DIR . 'tap_funktiot.php'); // Tarvitaanko tätä?
     $error=[];
 
     if (!isset($formdata['nimi']) || !$formdata['nimi']) {
@@ -40,18 +41,17 @@ function tarkistaTapahtuma($formdata) {
     if (!isset($formdata['alkaa_pvm']) || !$formdata['alkaa_pvm']) {
         $error['alkaa_pvm'] = "Syötä tapahtuman alkamispäivä.";
         } else {
-            if (!preg_match("/^[- '\p{L}]+$/u", $formdata['alkaa_pvm'])) {
-            $error['alkaa_pvm'] = "Syötä alkamispäivä ilman erikoismerkkejä.";
+            if (!preg_match("/^[0-9-]+$/", $formdata['alkaa_pvm'])) {
+            $error['alkaa_pvm'] = "Syötä alkamispäivä pyydetyssä muodossa.";
             }
         }
-        // Tuleeko joku, mikä tarkistaa oikean muodon? Entä kalenterinäkymä?
 
     // Alkamisaika
     if (!isset($formdata['alkaa_klo']) || !$formdata['alkaa_klo']) {
         $error['alkaa_klo'] = "Syötä tapahtuman alkamisaika.";
         } else {
-            if (!preg_match("/^[- '\p{L}]+$/u", $formdata['alkaa_klo'])) {
-            $error['alkaa_klo'] = "Syötä alkamisaika ilman erikoismerkkejä.";
+            if (!preg_match("/^[0-9:]+$/", $formdata['alkaa_klo'])) {
+            $error['alkaa_klo'] = "Syötä alkamisaika pyydetyssä muodossa.";
             }
         }
 
@@ -59,8 +59,8 @@ function tarkistaTapahtuma($formdata) {
     if (!isset($formdata['loppuu_pvm']) || !$formdata['loppuu_pvm']) {
         $error['loppuu_pvm'] = "Syötä tapahtuman päättymispäivä.";
         } else {
-            if (!preg_match("/^[- '\p{L}]+$/u", $formdata['loppuu_pvm'])) {
-            $error['loppuu_pvm'] = "Syötä päättymispäivä ilman erikoismerkkejä.";
+            if (!preg_match("/^[0-9-]+$/", $formdata['loppuu_pvm'])) {
+            $error['loppuu_pvm'] = "Syötä päättymispäivä pyydetyssä muodossa.";
             }
         }
 
@@ -68,8 +68,8 @@ function tarkistaTapahtuma($formdata) {
     if (!isset($formdata['loppuu_klo']) || !$formdata['loppuu_klo']) {
         $error['loppuu_klo'] = "Syötä tapahtuman päättymisaika.";
         } else {
-            if (!preg_match("/^[- '\p{L}]+$/u", $formdata['loppuu_klo'])) {
-            $error['loppuu_klo'] = "Syötä päättymispäivä ilman erikoisaika.";
+            if (!preg_match("/^[0-9:]+$/u", $formdata['loppuu_klo'])) {
+            $error['loppuu_klo'] = "Syötä päättymisaika pyydetyssä muodossa.";
             }
         }
     
@@ -81,9 +81,31 @@ function tarkistaTapahtuma($formdata) {
         $loppuu_pvm = $formdata['loppuu_pvm'];
         $loppuu_klo = $formdata['loppuu_klo'];
 
-        /* Tarvitaanko näitä ollenkaan)
-        $idhenkilo = lisaaHenkilo($nimi, $email, $salasana);
+        $idtapahtuma = lisaaTapahtuma($nimi, $kuvaus, $alkaa_pvm, $alkaa_klo, $loppuu_pvm, $loppuu_klo);
 
+        if ($idtapahtuma) {
+            return [
+                "status" => 200,
+                "id" => $idtapahtuma,
+                "data" => $formdata
+            ];
+        } else {
+            return [
+                "status" => 500,
+                "data" => $formdata
+            ];
+        }
+
+    } else {
+        return [
+            "status" => 400,
+            "data" => $formdata,
+            "error" => $error
+        ];
+    }
+}
+
+        /*
         if ($idhenkilo) {
             require_once(HELPERS_DIR . "secret.php");
             $avain = generateActivationCode($email);
@@ -113,9 +135,9 @@ function tarkistaTapahtuma($formdata) {
             "data" => $formdata,
             "error" => $error
         ];
-    */
     }
 }
+*/
 
 /*
 function lisaaTili($formdata, $baseurl='') {
