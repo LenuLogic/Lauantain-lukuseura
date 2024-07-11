@@ -189,33 +189,18 @@ switch ($request) {
         if (isset($_POST['laheta'])) {  
             $formdata = cleanArrayData($_POST);
             require_once MODEL_DIR . 'tap_funktiot.php'; 
-            $tulos = lisaaTapahtuma($formdata['nimi'], $formdata['kuvaus'], $formdata['alkaa_pvm'], $formdata['alkaa_klo'], $formdata['loppuu_pvm'], $formdata['loppuu_klo']);
-            echo "Tapahtuma on luotu tunnisteella $tulos.";
-            break;
-            } else {
-                echo $templates->render('lisaa_tapahtuma');
-            }
-            break;
-            
-    
-    /*
-    case '/lisaa_tapahtuma':
-        if (isset($_POST['laheta'])) {          //OK
-            $formdata = cleanArrayData($_POST); //OK
-            require_once CONTROLLER_DIR . 'tili_funktiot.php'; // MODEL_DIR tarvitaan mutta entä tämä 'tili_funktiot.php'?
-            $tulos = lisaaTili($formdata,$config['urls']['baseUrl']); //mitä tämä palauttaa?
+            $tulos = tarkistaTapahtuma($formdata);
             if ($tulos['status'] == "200") {
-                echo $templates->render('tapahtuma_lisatty', ['formdata' => $formdata]); // Tarviiko tota hakasulkeissa olevaa?
+                echo "Tapahtuma on luotu tunnisteella $tulos.";
                 break;
             }
-            echo $templates->render('lisaa_tili', ['formdata' => $formdata, 'error' => $tulos['error']]);
+            echo $templates->render('lisaa_tapahtuma', ['formdata' => $formdata, 'error' =>$tulos['error']]);
             break;
         } else {
-        echo $templates->render('lisaa_tili', ['formdata' => [], 'error' => []]);
-        break;
+            echo $templates->render('lisaa_tapahtuma', ['formdata' => [], 'error' => []]);
+            break;
         }
-        */
-
+    
     default:
         echo $templates->render('notfound');
 }

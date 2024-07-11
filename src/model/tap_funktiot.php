@@ -22,7 +22,7 @@ function tarkistaTapahtuma($formdata) {
     if (!isset($formdata['nimi']) || !$formdata['nimi']) {
         $error['nimi'] = "Syötä tapahtuman nimi.";
         } else {
-            if (!preg_match("/^[- '\p{L}]+$/u", $formdata['nimi'])) {
+            if (!preg_match("/^[0-9-?! '\p{L}]+$/u", $formdata['nimi'])) {
             $error['nimi'] = "Syötä nimi ilman erikoismerkkejä.";
             }
         }
@@ -30,7 +30,7 @@ function tarkistaTapahtuma($formdata) {
     if (!isset($formdata['kuvaus']) || !$formdata['kuvaus']) {
         $error['kuvaus'] = "Syötä tapahtuman kuvaus.";
         } else {
-            if (!preg_match("/^[- '\p{L}]+$/u", $formdata['nimi'])) {
+            if (!preg_match("/^[0-9-.!? '\p{L}]+$/u", $formdata['nimi'])) {
             $error['kuvaus'] = "Syötä kuvaus ilman erikoismerkkejä."; 
             // Tarvitaanko tätä? Voiko suodattaa muuten? Riittääkö,
             // että SQL siistii datan? Ei ehkä. Tarkista jostain.
