@@ -1,0 +1,98 @@
+/* https://koodaaja.hayo.fi/tapahtumapalvelu/aloitus/tyylit.html 
+"12. Viimeisenä korjaamme vielä tapahtumat-sivulla tulostuvat yksittäiset tapahtumat asemoitumaan yhdelle riville."
+lomakemuotoilut: https://koodaaja.hayo.fi/tapahtumapalvelu/lomake/lomaketyylit.html
+Kirjautumissivun infotekstin muotoilut: https://koodaaja.hayo.fi/tapahtumapalvelu/istunto/sivu.html
+Headerin uudet muotoilut: https://koodaaja.hayo.fi/tapahtumapalvelu/istunto/tiedot.html
+Ilmo-nappien muotoilut: https://koodaaja.hayo.fi/tapahtumapalvelu/istunto/ilmoittaudunappi.html
+*/
+
+/* Tekstimuotoilut */
+@import url('https://fonts.googleapis.com/css2?family=Amarante&display=swap');
+
+h1 {
+    font-family: 'Amarante', Palatino;
+    color: #125f5a;
+}
+
+section h1 {
+    margin-bottom: 1rem;
+}
+
+p {
+    font-family: Tahoma;
+}
+
+section {
+    font-family: Arial;
+}
+
+/* Html, body ja section */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background: linear-gradient(to top, #883d1a, #ffdfcb);
+}
+
+body {
+    background-color: #fff;
+    min-height: 100vh;
+    max-width: 50rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    padding: 1.5rem 1rem 1rem 1rem;
+    flex: 1;
+}
+
+/* Header ja navigointi */
+header {
+    background-color: #ffdfcb;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    font-family: 'Amarante', Palatino;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
+    max-height: 60px;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: #883d1a;
+}
+
+a:hover {
+    text-decoration: dashed underline;
+}
+
+/* Lomakkeet */
+.error {
+color: red;
+font-size: 0.8rem;
+}
+
+
+
+
+/* footer */
+footer {
+    font-size: 0.9rem;
+    font-family: 'Amarante', Palatino;
+    text-align: center;
+    margin: 0.4rem;
+}

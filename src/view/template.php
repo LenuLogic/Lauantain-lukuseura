@@ -3,11 +3,11 @@
     <head>
         <title>Lauantain lukuseura - <?=$this->e($title)?></title>
         <meta charset="UTF-8">
-        <link href="styles/styles.css" rel="stylesheet">
+        <link href="styles/lp_styles.css" rel="stylesheet">
     </head>
     <body>
         <header>
-            <h1><a href="<?=BASEURL?>">Lauantain lukuseura</a></h1>
+            <h1><a href="<?=BASEURL?>"><img src="public/styles/lauantain-lukuseura-high-resolution-logo-transparent.png"></a></h1>
             
             <div class="tapahtumat">
             <a href='tapahtumat'>Tapahtumat</a> 
