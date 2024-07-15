@@ -3,7 +3,7 @@
 <h1>Unohtunut salasana</h1>
 
 <p>Tilaa sähköpostiisi salasananvaihtolinkki alla olevalla lomakkeella.</p>
-
+<br>
 <form action="" method="POST">
     <div>
         <label for="email">Sähköposti</label>

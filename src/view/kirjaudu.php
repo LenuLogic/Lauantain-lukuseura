@@ -16,7 +16,7 @@
         <input type="submit" name="laheta" value="Kirjaudu">
     </div>
 </form>
-
-<div class="info">Jos sinulla ei ole vielä tunnuksia, voit luoda <a href="lisaa_tili">täällä</a>.<br>
-Jos olet unohtanut salasanasi, voit vaihtaa sen <a href="tilaa_vaihtoavain">täällä</a>.
+<br>
+<div class="info"><em>Jos sinulla ei ole vielä tunnuksia, voit luoda ne <a href="lisaa_tili">täällä</a>.<br>
+Jos olet unohtanut salasanasi, voit vaihtaa sen <a href="tilaa_vaihtoavain">täällä</a></em>.
 </div> 

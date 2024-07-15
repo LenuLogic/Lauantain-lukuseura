@@ -83,9 +83,8 @@ header {
 }
 
 header .user {
-    font-size: 12px;
+    font-size: 13px;
     color: #125f5a;
-    /*Miten tämän saa ylös*/
 }
 
 header img {
@@ -112,9 +111,34 @@ a:hover {
 }
 
 /* Lomakkeet */
+form > div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.75rem;
+}
+
+input {
+    border: 1px solid #999;
+    border-radius: 0.3rem;
+    padding: 0.45rem;
+    font-size: 1rem;
+}
+
+input[type=submit] {
+    padding: 0.5rem 3rem;
+    border-radius: 0.3rem;
+    background-color:#1a8881;
+    color: #fff;
+    font-weight: 500;
+    font-size: 20px;
+    min-width: 12rem;
+    margin: 1rem auto;
+    font-family: 'Sofia Sans Condensed', Tahoma;
+}
+
 .error {
 color: red;
-font-size: 0.8rem;
+font-size: 1rem;
 }
 
 
