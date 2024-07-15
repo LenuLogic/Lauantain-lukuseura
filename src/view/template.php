@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="fi">
     <head>
-        <title>Lauantain lukuseura - <?=$this->e($title)?></title>
+        <title><?=$this->e($title)?></title>
+        <link rel="icon" type="image/x-icon" href="public/images/lp_logo_transparent.png">
         <meta charset="UTF-8">
         <link href="styles/lp_styles.css" rel="stylesheet">
     </head>
     <body>
         <header>
-            <h1><a href="<?=BASEURL?>"><img src="public/styles/lauantain-lukuseura-high-resolution-logo-transparent.png"></a></h1>
+            <h1><a href="<?=BASEURL?>"><img src="public/images/lauantain-lukuseura-high-resolution-logo-transparent.png"></a></h1>
             
             <div class="tapahtumat">
             <a href='tapahtumat'>Tapahtumat</a> 

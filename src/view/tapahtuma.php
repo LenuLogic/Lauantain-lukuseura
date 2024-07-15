@@ -6,7 +6,7 @@ $loppupvm = new DateTime($tapahtuma['loppuu_pvm']);
 $loppuklo = new DateTime($tapahtuma['loppuu_klo']);
 ?>
 
-<h1><?=$tapahtuma['nimi']?></h1>
+<h2><?=$tapahtuma['nimi']?></h2>
 <div><?=$tapahtuma['kuvaus']?></div><br>
 <div>Alkaa: <?=$alkupvm->format('j.n.Y') . " klo " . $alkuklo->format('G.i') ?></div> 
 <div>Päättyy: <?=$loppupvm->format('j.n.Y') . " klo " . $loppuklo->format('G.i') ?></div> <!-- Muuta tämä -->

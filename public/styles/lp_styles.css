@@ -8,22 +8,30 @@ Ilmo-nappien muotoilut: https://koodaaja.hayo.fi/tapahtumapalvelu/istunto/ilmoit
 
 /* Tekstimuotoilut */
 @import url('https://fonts.googleapis.com/css2?family=Amarante&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
 
 h1 {
     font-family: 'Amarante', Palatino;
     color: #125f5a;
 }
 
+h2 {
+    color: #125f5a;
+    font-family: 'Sofia Sans Condensed', Tahoma;
+    margin: 0 0 1rem 0;
+}
+
 section h1 {
-    margin-bottom: 1rem;
+    margin: 0 0 2rem 0;
 }
 
 p {
-    font-family: Tahoma;
+    font-family: 'Sofia Sans Condensed', Tahoma;
 }
 
 section {
-    font-family: Arial;
+    font-family: 'Sofia Sans Condensed', Tahoma;
+    font-size: 20px;
 }
 
 /* Html, body ja section */
@@ -34,7 +42,7 @@ section {
 }
 
 html {
-    background: linear-gradient(to top, #883d1a, #ffdfcb);
+    background: linear-gradient(to bottom, #883d1a, #ffdfcb, #fff9f5);
 }
 
 body {
@@ -47,7 +55,8 @@ body {
 }
 
 section {
-    padding: 1.5rem 1rem 1rem 1rem;
+    padding: 1.5rem 1rem 0rem 1rem;
+    margin: 0 1rem 0 1rem;
     flex: 1;
 }
 
@@ -59,7 +68,7 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-family: 'Amarante', Palatino;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
@@ -74,10 +83,17 @@ header img {
 a {
     text-decoration: none;
     color: #883d1a;
+    text-shadow: 0.25px 0.25px;
 }
 
 a:hover {
-    text-decoration: dashed underline;
+    text-decoration: dotted underline;
+}
+
+/* Tapahtumat */
+
+.tap_nimi {
+    font-weight: 600;
 }
 
 /* Lomakkeet */
@@ -94,5 +110,7 @@ footer {
     font-size: 0.9rem;
     font-family: 'Amarante', Palatino;
     text-align: center;
-    margin: 0.4rem;
+    padding: 0.4rem;
+    background-color: #a2dad6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }

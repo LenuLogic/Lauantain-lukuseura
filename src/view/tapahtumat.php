@@ -11,9 +11,9 @@ foreach ($tapahtumat as $tapahtuma) {
     $loppuklo = new DateTime($tapahtuma['loppuu_klo']);
 
     echo "<div>";
-        echo "<div>$tapahtuma[nimi]</div>";
-        echo "<div>Alkaa " . $alkupvm->format('j.n.Y') . " klo " . $alkuklo->format('G.i') . "</div>";
-        echo "<div>Päättyy " . $loppupvm->format('j.n.Y') . " klo " . $loppuklo->format('G.i') . "</div>";
+        echo "<div class='tap_nimi'>$tapahtuma[nimi]</div>";
+        echo "<div>Alkaa <em>" . $alkupvm->format('j.n.Y') . " klo " . $alkuklo->format('G.i') . "</em></div>";
+        echo "<div>Päättyy <em>" . $loppupvm->format('j.n.Y') . " klo " . $loppuklo->format('G.i') . "</em></div>";
         echo "<div><a href='tapahtuma?id=" . $tapahtuma['idtapahtuma'] . "'>TIEDOT</a></div><br>";
     echo "</div>";
 }
