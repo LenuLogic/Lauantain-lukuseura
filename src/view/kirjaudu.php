@@ -1,6 +1,6 @@
 <?php $this->layout('template', ['title' => 'Kirjautuminen']) ?>
 
-<h1>Kirjautuminen</h1>
+<h1>Kirjaudu palveluun</h1>
 
 <form action="" method="POST">
     <div>

@@ -8,8 +8,9 @@
     </head>
     <body>
         <header>
-            <h1><a href="<?=BASEURL?>"><img src="public/images/lauantain-lukuseura-high-resolution-logo-transparent.png"></a></h1>
+            <a href="<?=BASEURL?>"><img src="public/images/lauantain-lukuseura-high-resolution-logo-transparent.png"></a>
             
+            <div class="head_otsikot">
             <div class="tapahtumat">
             <a href='tapahtumat'>Tapahtumat</a> 
             </div>
@@ -21,12 +22,13 @@
             <div class="profile">
                 <?php 
                     if (isset($_SESSION['user'])) {
-                        echo "<div>$_SESSION[user]</div>";
                         echo "<div><a href='logout'>Kirjaudu ulos</a></div>";
+                        echo "<div class='user'>$_SESSION[user]</div>";
                     } else {
                         echo "<div><a href='kirjaudu'>Kirjaudu</a></div>";
                     }
                 ?>
+            </div>
             </div>
         </header>
         <section>

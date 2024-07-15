@@ -73,6 +73,21 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
+.head_otsikot {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: first baseline;
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
+
+header .user {
+    font-size: 12px;
+    color: #125f5a;
+    /*Miten tämän saa ylös*/
+}
+
 header img {
     max-width: 100%;
     height: auto;
