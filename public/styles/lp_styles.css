@@ -1,11 +1,3 @@
-/* https://koodaaja.hayo.fi/tapahtumapalvelu/aloitus/tyylit.html 
-"12. Viimeisenä korjaamme vielä tapahtumat-sivulla tulostuvat yksittäiset tapahtumat asemoitumaan yhdelle riville."
-lomakemuotoilut: https://koodaaja.hayo.fi/tapahtumapalvelu/lomake/lomaketyylit.html
-Kirjautumissivun infotekstin muotoilut: https://koodaaja.hayo.fi/tapahtumapalvelu/istunto/sivu.html
-Headerin uudet muotoilut: https://koodaaja.hayo.fi/tapahtumapalvelu/istunto/tiedot.html
-Ilmo-nappien muotoilut: https://koodaaja.hayo.fi/tapahtumapalvelu/istunto/ilmoittaudunappi.html
-*/
-
 /* Tekstimuotoilut */
 @import url('https://fonts.googleapis.com/css2?family=Amarante&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');

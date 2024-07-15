@@ -230,4 +230,4 @@ switch ($request) {
 
 ?>
 
-<!-- https://neutroni.hayo.fi/~lkevatky/lukupiiri/ -->
+<!-- https://neutroni.hayo.fi/~lkevatky/lukuseura/ -->

@@ -7,7 +7,7 @@ $config = array (
         "host" => "localhost"
     ),
     "urls" => array(
-        "baseUrl" => "/~lkevatky/lukupiiri"
+        "baseUrl" => "/~lkevatky/lukuseura"
     )
     );
 
