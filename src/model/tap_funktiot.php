@@ -30,11 +30,8 @@ function tarkistaTapahtuma($formdata) {
     if (!isset($formdata['kuvaus']) || !$formdata['kuvaus']) {
         $error['kuvaus'] = "Syötä tapahtuman kuvaus.";
         } else {
-            if (!preg_match("/^[0-9-.!? '\p{L}]+$/u", $formdata['nimi'])) {
+            if (!preg_match("/^[0-9-.!?()&@:+ '\p{L}\"\/]+$/u", $formdata['kuvaus'])) {
             $error['kuvaus'] = "Syötä kuvaus ilman erikoismerkkejä."; 
-            // Tarvitaanko tätä? Voiko suodattaa muuten? Riittääkö,
-            // että SQL siistii datan? Ei ehkä. Tarkista jostain.
-            // Saako tämän suodatettua tekstiksi/stringiksi?
             }
         }
     // Alkamispäivä
