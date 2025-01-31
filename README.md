@@ -1,3 +1,5 @@
+[*Read the project description in English below*](#the-saturday-book-club)
+
 # Lauantain lukuseura -kirjallisuustapahtumasivusto
 
 <b>Lauantain lukuseura</b> on kirjallisuustapahtumiin keskittyvä sivusto, jossa voi selata kirjallisuustapahtumia, ilmoittautua niihin sekä lisätä uusia tapahtumia. Ilmoittautuminen ja tapahtumien lisääminen ovat mahdollisia palveluun rekisteröityneille käyttäjille. 
@@ -23,14 +25,15 @@ Jos haluat tarkastella projektia lokaalisti, tarvitset palvelimen suorittamaan P
 
 ### Sovelluksen toiminnallisuudet
 Sivustolla voi selata tapahtumia. Kirjautuneet käyttäjät voivat ilmoittautua niihin ja lisätä uusia tapahtumia. <br />
-![Tapahtumat](public/images/screenshots/tapahtumat.png?raw=true) <br />
-![Lisaa tapahtuma](public/images/screenshots/lisaa.png?raw=true)
+<img src="public/images/screenshots/tapahtumat.png?raw=true" alt="tapahtumat" width="400"><br />
+<img src="public/images/screenshots/lisaa.png?raw=true" alt="Lisää tapahtuma" width="400">
 <br />
 Rekisteröitymisessä sekä salasanan vaihtamisessa käytetään sähköpostivarmennetta.
 
-![Kirjautuminen](public/images/screenshots/kirjaudu.png?raw=true) <br />
-![Tilin luonti](public/images/screenshots/luotili.png?raw=true) <br />
-![Vahvistus](public/images/screenshots/vahvistus.png?raw=true) <br />
+<img src="public/images/screenshots/kirjaudu.png?raw=true" alt="Kirjautuminen" width="400"> <br />
+<img src="public/images/screenshots/luotili.png?raw=true" alt="Tilin luonti" width="400"> <br />
+<img src="public/images/screenshots/vahvistus.png?raw=true" alt="Sähköpostin vahvistus" width="400"> <br />
+
 
 ## Projektin tila
 
@@ -44,4 +47,60 @@ Tätä projektia ylläpitää [Leena Kevätkylä](https://github.com/LenuLogic).
 
 ## Lisenssi
 
-Tämä projekti on julkaistu lisenssillä [MIT license](LICENSE).
+Tämä projekti on julkaistu lisenssillä [MIT license](LICENSE). 
+
+<br />
+
+---
+
+<br />
+
+# The Saturday Book Club 
+## Literary Event Website
+
+<b>The Saturday Book Club</b> is a website focused on literary events, where users can browse events, register for them, and add new ones. Registration and event creation are available to users who have signed up for the service.
+The website was created as a study project for the Backend studies in SASKY's Fullstack Developer program.
+<br />
+
+![Front page](public/images/screenshots/etusivu.png?raw=true)
+<br />
+## Technologies
+- Apache
+- MariaDB
+- SQL
+- PHP
+- Plates
+- HTML5 
+- CSS3
+<br />
+## Installation and Usage
+You can explore the deployed application  <a href="https://neutroni.hayo.fi/~lkevatky/lukuseura/">here</a> or download it following the instructions below.
+
+If you want to run the project locally, you need a server capable of executing PHP code. Additionally, you must update the environment variables in the `config.php` file to point to the correct server. You will also need a database to store events. A local setup can be done using an environment like <a href='https://www.apachefriends.org/'>XAMPP</a>.
+<br />
+
+### Features
+Users can browse events on the website. Logged-in users can register for events and add new ones. <br />
+<img src="public/images/screenshots/tapahtumat.png?raw=true" alt="tapahtumat" width="400"><br />
+<img src="public/images/screenshots/lisaa.png?raw=true" alt="Lisää tapahtuma" width="400">
+<br />
+Email verification is required for registration and password reset.
+
+<img src="public/images/screenshots/kirjaudu.png?raw=true" alt="Kirjautuminen" width="400"> <br />
+<img src="public/images/screenshots/luotili.png?raw=true" alt="Tilin luonti" width="400"> <br />
+<img src="public/images/screenshots/vahvistus.png?raw=true" alt="Sähköpostin vahvistus" width="400"> <br />
+
+
+## Project status
+
+This project is complete, but minor updates may be made if needed.
+<br />
+
+## Maintainer
+
+This project is maintained by [Leena Kevätkylä](https://github.com/LenuLogic). 
+<br />
+
+## License
+
+This project is released under the [MIT license](LICENSE).
