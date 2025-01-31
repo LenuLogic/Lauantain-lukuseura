@@ -19,11 +19,12 @@ section h1 {
 
 p {
     font-family: 'Sofia Sans Condensed', Tahoma;
+    font-size: 1.5rem;
 }
 
 section {
     font-family: 'Sofia Sans Condensed', Tahoma;
-    font-size: 20px;
+    font-size: 1.5rem;
 }
 
 /* Html, body ja section */

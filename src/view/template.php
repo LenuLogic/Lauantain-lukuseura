@@ -35,7 +35,7 @@
             <?=$this->section('content')?>
         </section>
         <footer>
-            &copy;Lenu Logic
+            &copy;LenuLogic
         </footer>
     </body>
 </html>
